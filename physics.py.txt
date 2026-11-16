@@ -1,42 +1,97 @@
-```python
-# COS 101 Assignment
-# Five Physics Formulas
+# PHYSICS CALCULATOR
 
-# 1. Speed = Distance / Time
-def calculate_speed(distance, time):
-    if time == 0:
-        raise ValueError("Time cannot be zero.")
-    return distance / time
+# Function 1: Calculate Speed
+def speed():
+    distance = float(input("Enter distance in metres: "))
+    time = float(input("Enter time in seconds: "))
 
-
-# 2. Force = Mass * Acceleration
-def calculate_force(mass, acceleration):
-    return mass * acceleration
+    if time > 0:
+        result = distance / time
+        print("Speed =", result, "m/s")
+    else:
+        print("Time must be greater than zero.")
 
 
-# 3. Density = Mass / Volume
-def calculate_density(mass, volume):
-    if volume == 0:
-        raise ValueError("Volume cannot be zero.")
-    return mass / volume
+# Function 2: Calculate Force
+def force():
+    mass = float(input("Enter mass in kg: "))
+    acceleration = float(input("Enter acceleration in m/s²: "))
+
+    result = mass * acceleration
+    print("Force =", result, "Newtons")
 
 
-# 4. Weight = Mass * Gravitational Acceleration
-def calculate_weight(mass, gravity=9.81):
-    return mass * gravity
+# Function 3: Calculate Work
+def work():
+    force_value = float(input("Enter force in Newtons: "))
+    distance = float(input("Enter distance in metres: "))
+
+    result = force_value * distance
+    print("Work =", result, "Joules")
 
 
-# 5. Work Done = Force * Distance
-def calculate_work(force, distance):
-    return force * distance
+# Function 4: Calculate Power
+def power():
+    work_done = float(input("Enter work in Joules: "))
+    time = float(input("Enter time in seconds: "))
+
+    if time > 0:
+        result = work_done / time
+        print("Power =", result, "Watts")
+    else:
+        print("Time must be greater than zero.")
 
 
-# Display results
-if __name__ == "__main__":
-    print("COS 101 Physics Formulas")
-    print("Speed:", calculate_speed(100, 20), "m/s")
-    print("Force:", calculate_force(10, 5), "N")
-    print("Density:", calculate_density(20, 4), "kg/m^3")
-    print("Weight:", calculate_weight(10), "N")
-    print("Work Done:", calculate_work(50, 3), "J")
-```
+# Function 5: Calculate Density
+def density():
+    mass = float(input("Enter mass in kg: "))
+    volume = float(input("Enter volume in m³: "))
+
+    if volume > 0:
+        result = mass / volume
+        print("Density =", result, "kg/m³")
+    else:
+        print("Volume must be greater than zero.")
+
+
+# MAIN PROGRAM USING WHILE LOOP
+
+while True:
+
+    print("\n================================")
+    print("       PHYSICS CALCULATOR")
+    print("================================")
+    print("1. Speed")
+    print("2. Force")
+    print("3. Work")
+    print("4. Power")
+    print("5. Density")
+    print("================================")
+
+    choice = input("Choose an operation (1-5): ")
+
+    if choice == "1":
+        speed()
+
+    elif choice == "2":
+        force()
+
+    elif choice == "3":
+        work()
+
+    elif choice == "4":
+        power()
+
+    elif choice == "5":
+        density()
+
+    else:
+        print("Invalid selection. Please choose 1-5.")
+
+    # Ask user whether to continue
+    answer = input("\nDo you want to continue? (yes/no): ")
+
+    if answer.lower() != "yes":
+        print("\nThank you for using the Physics Calculator!")
+        print("Program ended.")
+        break
